@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+    <package name="log" extends="struts-default" namespace="/">
+    	<!-- 定义用户自定义拦截器 -->
+		<interceptors>
+			<interceptor name="loginInterceptor" class="interceptor.LoginInterceptor"/>
+		</interceptors>
+		<!-- 登陆的Action -->
+        <action name="loginAction" class="action.LoginAction">
+        	
+            <result name="success">/Booking.jsp</result>
+            <result name="input">/index.jsp</result>
+        </action>
+        <!-- 注册的Action -->
+        <action name="registerAction" class="action.regAction">
+            <result name="success">/bookSuccess.jsp</result>
+            <result name="input">/index.jsp</result>
+        </action>
+        <action name="bookAction" class="action.BookAction">
+        	<!-- 使用引用登录拦截器 -->  
+			<interceptor-ref name="loginInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+			<!-- type="redirectAction" 表示Action跳转，指定跳转到下一个Action -->
+			<!-- 返回userList，调用另一个Action，没有指定Action方法，调用默认的execute方法 -->
+			<result name="bookList" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">bookAction</param>
+			</result>
+            <result name="success">/bookSuccess.jsp</result>
+            <result name="input">/Booking.jsp</result>
+            <result name="erto">/Booking.jsp</result>
+        </action>
+    </package>
+</struts>

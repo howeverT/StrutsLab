@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="log" location="610,10" size="280,560">
+    <action name="loginAction" location="66,83" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="Booking.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="registerAction" location="66,188" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bookSuccess.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="bookAction" location="66,342" size="150,104">
+      <result name="bookList">
+        <resourceEdge source="bookList" routing="0" target="bookAction" namespace="/" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bookSuccess.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="index.jsp" />
+      </result>
+      <result name="erto">
+        <resourceEdge source="erto" routing="0" target="Booking.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="Booking.jsp" path="/Booking.jsp" location="10,507" size="150,55" />
+  <webResource name="index.jsp" path="/index.jsp" location="150,192" size="150,55" />
+  <webResource name="bookSuccess.jsp" path="/bookSuccess.jsp" location="395,262" size="150,55" />
+</Struts2Diagram>
+

@@ -1,0 +1,33 @@
+body{
+	background: url(../images/sky.jpg) no-repeat center;
+	background-size:cover;
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+	}
+h1{
+	color: red;
+	//margin-left:30px
+	}
+#backdiv{
+	background-color: rgba(255,255,255,0.3);
+	//height: 500px;
+	//width: 500px;
+	//margin: 150px auto;
+	height:100%;
+	width:100%;
+	margin: 0px auto;
+	
+	}
+span{
+	color:red;
+	}
+form{
+	margin-left:43%;
+	
+	}
+#msg{
+	color:red;
+}
+	
