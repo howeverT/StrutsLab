@@ -38,13 +38,7 @@ public class regAction extends ActionSupport{
 		}
 	}
 	public void validate(){
-		if(lname==null || lname.equals("") ){
-			addFieldError("lname","用户名不能为空");
-		}
-		if(lpwd==null || lpwd.equals("") || vpwd.equals("")){
-			addFieldError("lpwd","密码不能为空");
-		}
-		else if(!lpwd.equals(vpwd)){
+		if(!lpwd.equals(vpwd)){
 			addFieldError("vpwd","两次输入密码不一样");
 		}
 	}

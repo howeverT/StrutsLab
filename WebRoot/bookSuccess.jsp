@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		
     		<s:iterator value="planes" status="st" var="plane">
     			<tr>
-    				<td><s:property value="%{planes[#st.index].uame}"/></td>
+    				<td><s:property value="%{planes[#st.index].uname}"/></td>
     				<td><s:property value="#plane.sex"/></td>
     				<td><s:property value="#plane.scity"/></td>
     				<td><s:property value="#plane.dcity"/></td>

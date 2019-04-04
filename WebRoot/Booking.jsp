@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'Success.jsp' starting page</title>
+    <title>订票页面</title>
 	<link rel="stylesheet" type="text/css" href="css/bookPlane.css">
 	<script type="text/javascript" src="js/bookPlane.js"></script>
 
@@ -20,11 +20,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="backdiv">
     <br><br><br><br><br>
 		<h1 align="center">在线机票预订</h1>
-		<div>
-			<!--<s:fielderror></s:fielderror>-->
-		</div>
+		
 		<br><br>
-		<s:form method="post" action="bookAction!BookTicket">
+		<s:form method="post" action="bookAction">
 	    	<s:textfield name="plane.uname" label="姓名"/>
 	    	<s:radio name="plane.sex" list="%{#{'男':'男','女':'女'}}" label="性别"/>   	
 	    	<s:textfield name="plane.scity" label="始发城市"/>

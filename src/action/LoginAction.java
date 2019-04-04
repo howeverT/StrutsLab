@@ -34,17 +34,10 @@ public class LoginAction extends ActionSupport{
 			m.put("loginName", name);
 			return SUCCESS;
 		}else{
+			addFieldError("name","用户名或密码错误");
 			return INPUT;
 		}
 	}
-	//验证
-	public void validate(){
-		if(name==null || name.equals("") ){
-			addFieldError("name","用户名不能为空");
-		}
-		if(pwd==null || pwd.equals("") ){
-			addFieldError("pwd","密码不能为空");
-		}
-	}
+	
 	
 }

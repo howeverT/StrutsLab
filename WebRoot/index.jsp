@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h2>用户登陆</h2>
 
     <form method="POST" action="loginAction">
-    	<s:property value="errorMessage" /><br>
+
     	姓名：<input type="text" name="name"/><br>
     	密码：<input type="password" name="pwd"/>
     	<div>
