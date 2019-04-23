@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+  "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+  "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<!--字段校验器风格，校验field：user.name-->
+	<field name="oldPwd">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>密码不能为空！</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">20</param>
+			<message>密码长度为${minLength}到${maxLength}之间</message>
+		</field-validator>
+	</field>
+	<field name="newPwd">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>密码不能为空！</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">20</param>
+			<message>密码长度为${minLength}到${maxLength}之间</message>
+		</field-validator>
+	</field>
+	<field name="newPwd2">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>密码不能为空！</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">20</param>
+			<message>密码长度为${minLength}到${maxLength}之间</message>
+		</field-validator>
+	</field>
+</validators>

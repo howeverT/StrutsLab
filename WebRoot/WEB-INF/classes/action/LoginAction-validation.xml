@@ -4,7 +4,7 @@
   "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
 	<!--字段校验器风格，校验field：user.name-->
-	<field name="name">
+	<field name="user.name">
 		<field-validator type="requiredstring" short-circuit="true">
 			<message>用户名不能为空！</message>
 		</field-validator>
@@ -14,7 +14,7 @@
 			<message> 用户名称长度为${minLength}到${maxLength}之间</message>
 		</field-validator>	
 	</field>
-	<field name="pwd">
+	<field name="user.pwd">
 		<field-validator type="requiredstring" short-circuit="true">
 			<message>密码不能为空！</message>
 		</field-validator>

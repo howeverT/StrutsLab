@@ -17,9 +17,10 @@
         </action>
         <!-- 注册的Action -->
         <action name="registerAction" class="action.regAction">
-            <result name="success">/Booking.jsp</result>
-            <result name="input">/index.jsp</result>
+            <result name="success">/index.jsp</result>
+            <result name="input">/reg.jsp</result>
         </action>
+        <!-- 订票的Action -->
         <action name="bookAction" class="action.BookAction">
         	<!-- 使用引用登录拦截器 -->  
 			<interceptor-ref name="loginInterceptor"/>
@@ -28,10 +29,44 @@
 			<!-- 返回userList，调用另一个Action，没有指定Action方法，调用默认的execute方法 -->
 			<result name="bookList" type="redirectAction">
 				<param name="namespace">/</param>
-				<param name="actionName">bookAction</param>
+				<param name="actionName">showAction</param>
 			</result>
             <result name="success">/bookSuccess.jsp</result>
             <result name="input">/Booking.jsp</result>
+            <result name="eor">/index.jsp</result>
+        </action>
+        <!-- 删除的Action -->
+        <action name="deleteAction" class="action.DeleteAction">
+        	<result name="showTicket" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">showAction</param>
+			</result>
+            <result name="success">/bookSuccess.jsp</result>
+            <result name="input">/bookSuccess.jsp</result>
+        </action>
+        <!-- 查询的Action -->
+        <action name="queryAction" class="action.QueryAction">
+            <result name="success">/updatePage.jsp</result>
+            <result name="input">/Booking.jsp</result>
+        </action>
+        <!-- 更新的Action -->
+        <action name="updatePlaneAction" class="action.UpdatePlaneAction">
+        	<result name="showTicket" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">showAction</param>
+			</result>
+            <result name="success">/bookSuccess.jsp</result>
+            <result name="input">/updatePage.jsp</result>
+        </action>
+        <!-- 显示的Action -->
+        <action name="showAction" class="action.ShowAction">
+            <result name="success">/bookSuccess.jsp</result>
+            <result name="input">/Booking.jsp</result>
+        </action>
+        <!-- 修改密码的Action -->
+        <action name="updatePwdAction" class="action.UpdatePwdAction">
+            <result name="success">/index.jsp</result>
+            <result name="input">/updatePwd.jsp</result>
         </action>
     </package>
 </struts>

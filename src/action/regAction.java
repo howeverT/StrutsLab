@@ -1,26 +1,21 @@
 package action;
 import java.util.Map;
-
+import com.entity.Users;
 import com.dao.PlaneDao;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 public class regAction extends ActionSupport{
-	String lname;
-	String lpwd;
+	Users ruser;
+	PlaneDao pd=new PlaneDao();
 	String vpwd;
-	public String getLname() {
-		return lname;
+	
+	public Users getRuser() {
+		return ruser;
 	}
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
-	public String getLpwd() {
-		return lpwd;
-	}
-	public void setLpwd(String lpwd) {
-		this.lpwd = lpwd;
+	public void setRuser(Users ruser) {
+		this.ruser = ruser;
 	}
 	public String getVpwd() {
 		return vpwd;
@@ -29,16 +24,16 @@ public class regAction extends ActionSupport{
 		this.vpwd = vpwd;
 	}
 	public String execute(){
-		if(PlaneDao.uregCheck(lname)){
+		if(PlaneDao.uregCheck(ruser.getName())){
 			//跟数据库数据重复就重新注册
 			return INPUT;
 		}else{
-			PlaneDao.userRegister(lname, lpwd);
+			PlaneDao.userRegister(ruser);
 			return SUCCESS;
 		}
 	}
 	public void validate(){
-		if(!lpwd.equals(vpwd)){
+		if(!ruser.getPwd().equals(vpwd)){
 			addFieldError("vpwd","两次输入密码不一样");
 		}
 	}

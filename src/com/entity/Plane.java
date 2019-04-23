@@ -1,6 +1,7 @@
 package com.entity;
 //POJO¿‡
 public class Plane {
+	private int id;
 	private String uname;
 	private String sex;
 	private String scity;
@@ -54,6 +55,12 @@ public class Plane {
 	}
 	public void setIdent(String ident) {
 		this.ident = ident;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

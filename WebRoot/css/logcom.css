@@ -1,0 +1,44 @@
+html,body{
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+}
+body{
+		height: 100%;
+		width: 100%;
+		background-attachment:fixed;
+		background: url(../images/logpg.jpg) no-repeat center;
+		background-size:cover;
+		/*margin: 0;
+		padding: 0;*/
+}
+#tbl{
+	background-color: rgba(255,255,255,0.8);
+	height: 504px;
+	width: 432px;
+	margin: 100px auto;
+}
+input{  
+	border:none; 
+	border-bottom:1px solid gray;
+	background-color: rgba(255,255,255,0);
+	width: 300px;
+	height: 50px;
+	font-size: 17px;
+} 
+form{
+	text-align: center;
+}
+h3{
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+.btmy{
+	width: 250px;
+}
+#lhead{
+	text-align: center;
+}
+#tbreg{
+	display: none;
+}
