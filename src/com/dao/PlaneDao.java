@@ -221,13 +221,13 @@ public class PlaneDao {
 			session=HibernateSessionFactory.getSession();
 			//hql语句,Plane代表是entity里的实体类
 			//获取所有数据
-			String queryString="from Plane where uname=?";
+			String queryString="from Plane where utage=?";
 			//创建查询
 			Query query=session.createQuery(queryString);
 			//设置参数,?的序号从0开始
 			query.setParameter(0, p);
 			//执行查询获得的结果,list中的每一个元素代表一个Users的对象
-			List list=query.list();//list集合包含Users表里所有数据
+			List list=query.list();//list集合包含Plane表里所有数据
 			if(list.size()>0)
 				return list;
 			else{
@@ -302,7 +302,7 @@ public class PlaneDao {
 			Session session=null;
 			try{
 				session=HibernateSessionFactory.getSession();
-				String queryString="from Plane where uname=?";
+				String queryString="from Plane where utage=?";
 				//创建查询
 				Query query=session.createQuery(queryString);
 				//设置参数,?的序号从0开始

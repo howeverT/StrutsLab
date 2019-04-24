@@ -42,19 +42,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</nav>
 			</div>
 			
-			<form class="form-inline" method="post" action="showAction">
-			  <div class="form-group">
-			    <label for="exampleInputName2">姓名</label>
-			    <input type="text" class="form-control" id="" placeholder="">
-			  </div>
-			  <div class="form-group">
-			    <label for="exampleInputEmail2">出发日期</label>
-			    <input type="text" class="form-control" id="" placeholder="">
-			  </div>
-			  <button type="submit" class="btn btn-default">查询</button>
-			</form>
+			
 			
 			<div class="jumbotron" style="width: 1170px;">
+			
+				<form class="form-inline" method="post" action="showAction">
+				  <div class="form-group">
+				    <label for="exampleInputName2">姓名</label>
+				    <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInput">出发日期</label>
+				    <input type="text" class="form-control" id=""exampleInput"" placeholder="">
+				  </div>
+				  <button type="submit" class="btn btn-default">查询</button>
+				</form>
+			
 				<table class="table" >
 					<thead>
 						<tr>

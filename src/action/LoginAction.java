@@ -29,6 +29,7 @@ public class LoginAction extends ActionSupport{
 			m=ActionContext.getContext().getSession();
 			//将登录用户名保存session里
 			m.put("loginName", user);
+			m.put("Uname", user.getName());
 			return SUCCESS;
 		}else{
 			addFieldError("user.name","用户名或密码错误");

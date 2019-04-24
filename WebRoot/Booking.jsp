@@ -82,6 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<input type="text" name="plane.ident" class="form-control" id="iden" placeholder="<s:property value="fieldErrors['plane.ident'][0]" />">
 						</div>
 				  </div>
+				  <input type="text" name="plane.utage" class="form-control" id="ut" value="${loginName.getName()}" style="display:none">
 				  <div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 						  <button type="submit" class="btn btn-info">预订</button>

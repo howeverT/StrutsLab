@@ -14,5 +14,6 @@
 		<property name="dcity" column="Distinction"/>
 		<property name="date" column="Date"/>
 		<property name="ident" column="Identification"/>
+		<property name="utage" column="utage"/>
 	</class>
 </hibernate-mapping>

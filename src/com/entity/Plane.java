@@ -8,8 +8,16 @@ public class Plane {
 	private String dcity;
 	private String date;
 	private String ident;
+	private String utage;
+	
 	public Plane(){
 		
+	}
+	public String getUtage() {
+		return utage;
+	}
+	public void setUtage(String utage) {
+		this.utage = utage;
 	}
 	public Plane(String uname,String sex,String scity,String dcity,String date,String ident){
 		this.uname=uname;

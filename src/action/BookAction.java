@@ -36,7 +36,7 @@ public class BookAction extends ActionSupport{
 		//获取用户的订票信息
 		//System.out.println(m.get("Uname"));
 		pd.insertData(plane);
-		m.put("Uname", plane.getUname());
+		//m.put("Uname", plane.getUtage());
 		//planes=pd.queryTicket(m.get("Uname").toString());
 		//m.put("planes", planes);
 		return "bookList";
