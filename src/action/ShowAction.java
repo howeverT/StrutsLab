@@ -68,7 +68,7 @@ public class ShowAction extends ActionSupport{
 		planes=pd.queryByPage(pageNo,pageSize,m.get("Uname").toString());
 		//…Ë÷√µ±«∞“≥
 		currentPage=pageNo;
-		
+		//111111111
 		//planes=pd.queryTicket(m.get("Uname").toString());
 		m.put("planes", planes);
 		return SUCCESS;
