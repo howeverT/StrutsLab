@@ -12,7 +12,7 @@
 		<!-- 登陆的Action -->
         <action name="loginAction" class="action.LoginAction">
         	
-            <result name="success">/Booking.jsp</result>
+            <result name="success">/entrance/home.jsp</result>
             <result name="input">/index.jsp</result>
         </action>
         <!-- 注册的Action -->
@@ -31,8 +31,8 @@
 				<param name="namespace">/</param>
 				<param name="actionName">showAction</param>
 			</result>
-            <result name="success">/bookSuccess.jsp</result>
-            <result name="input">/Booking.jsp</result>
+            <result name="success">/entrance/bookSuccess.jsp</result>
+            <result name="input">/entrance/Booking.jsp</result>
             <result name="eor">/index.jsp</result>
         </action>
         <!-- 删除的Action -->
@@ -41,13 +41,13 @@
 				<param name="namespace">/</param>
 				<param name="actionName">showAction</param>
 			</result>
-            <result name="success">/bookSuccess.jsp</result>
-            <result name="input">/bookSuccess.jsp</result>
+            <result name="success">/entrance/bookSuccess.jsp</result>
+            <result name="input">/entrance/bookSuccess.jsp</result>
         </action>
         <!-- 查询的Action -->
         <action name="queryAction" class="action.QueryAction">
-            <result name="success">/updatePage.jsp</result>
-            <result name="input">/Booking.jsp</result>
+            <result name="success">/entrance/updatePage.jsp</result>
+            <result name="input">/entrance/Booking.jsp</result>
         </action>
         <!-- 更新的Action -->
         <action name="updatePlaneAction" class="action.UpdatePlaneAction">
@@ -55,18 +55,23 @@
 				<param name="namespace">/</param>
 				<param name="actionName">showAction</param>
 			</result>
-            <result name="success">/bookSuccess.jsp</result>
-            <result name="input">/updatePage.jsp</result>
+            <result name="success">/entrance/bookSuccess.jsp</result>
+            <result name="input">/entrance/updatePage.jsp</result>
         </action>
         <!-- 显示的Action -->
         <action name="showAction" class="action.ShowAction">
-            <result name="success">/bookSuccess.jsp</result>
-            <result name="input">/Booking.jsp</result>
+            <result name="success">/entrance/bookSuccess.jsp</result>
+            <result name="input">/entrance/Booking.jsp</result>
         </action>
         <!-- 修改密码的Action -->
         <action name="updatePwdAction" class="action.UpdatePwdAction">
             <result name="success">/index.jsp</result>
-            <result name="input">/updatePwd.jsp</result>
+            <result name="input">/entrance/updatePwd.jsp</result>
+        </action>
+        <!-- 退出的Action -->
+        <action name="quitAction" class="action.QuitAction">
+            <result name="success">/index.jsp</result>
+            <result name="input">/entrance/home.jsp</result>
         </action>
     </package>
 </struts>

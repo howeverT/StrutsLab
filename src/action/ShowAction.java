@@ -14,8 +14,22 @@ public class ShowAction extends ActionSupport{
 	private int pageNo=1; //计数器,从第1页开始显示
 	private int currentPage; //当前页
 	private int totalPage; //总页数
+	private String qname="";//查询的名字
+	private String qdate="";//查询的日期
 	public ShowAction(){
 		m=ActionContext.getContext().getSession();
+	}
+	public String getQname() {
+		return qname;
+	}
+	public void setQname(String qname) {
+		this.qname = qname;
+	}
+	public String getQdate() {
+		return qdate;
+	}
+	public void setQdate(String qdate) {
+		this.qdate = qdate;
 	}
 	public int getId() {
 		return id;
@@ -52,7 +66,7 @@ public class ShowAction extends ActionSupport{
 	}
 	public String execute(){
 		//获得所有数据，得到数据的总个数
-		planes=pd.queryTicket(m.get("Uname").toString());
+		planes=pd.queryTicket(m.get("Uname").toString(),qname,qdate);
 		//计算总页数
 		if(planes.size()%pageSize==0){
 			totalPage=planes.size()/pageSize;
@@ -65,7 +79,7 @@ public class ShowAction extends ActionSupport{
 			pageNo=totalPage;
 		}
 		//根据当前页查询要在该页上显示的数据
-		planes=pd.queryByPage(pageNo,pageSize,m.get("Uname").toString());
+		planes=pd.queryByPage(pageNo,pageSize,m.get("Uname").toString(),qname,qdate);
 		//设置当前页
 		currentPage=pageNo;
 		

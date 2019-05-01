@@ -186,7 +186,7 @@ public class PlaneDao {
 		return true;
 	}
 	//查询订票信息
-	public static List<Plane> queryTicket(String p){
+	public static List<Plane> queryTicket(String p,String n,String d){
 		/*Connection dbConnection = null;
 		PreparedStatement pStatement = null;
 		ResultSet res = null;
@@ -221,12 +221,12 @@ public class PlaneDao {
 			session=HibernateSessionFactory.getSession();
 			//hql语句,Plane代表是entity里的实体类
 			//获取所有数据
-			String queryString="from Plane where utage=?";
+			String queryString="from Plane where utage=? and uname like '%"+n+"%'"+" and date like '%"+d+"%'";
 			//创建查询
 			Query query=session.createQuery(queryString);
 			//设置参数,?的序号从0开始
 			query.setParameter(0, p);
-			//执行查询获得的结果,list中的每一个元素代表一个Users的对象
+			//执行查询获得的结果,list中的每一个元素代表一个Plane的对象
 			List list=query.list();//list集合包含Plane表里所有数据
 			if(list.size()>0)
 				return list;
@@ -297,12 +297,12 @@ public class PlaneDao {
 			}	
 		}
 		//查询每页需要显示的数据(每次最多5条记录)
-		public List<Plane> queryByPage(int pageNo,int pageSize,String p){
+		public List<Plane> queryByPage(int pageNo,int pageSize,String p,String n,String d){
 			//得到session
 			Session session=null;
 			try{
 				session=HibernateSessionFactory.getSession();
-				String queryString="from Plane where utage=?";
+				String queryString="from Plane where utage=? and uname like '%"+n+"%'"+" and date like '%"+d+"%'";
 				//创建查询
 				Query query=session.createQuery(queryString);
 				//设置参数,?的序号从0开始

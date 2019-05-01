@@ -47,6 +47,7 @@ public class UpdatePwdAction extends ActionSupport{
 		if(pd.changePassword(user, oldPwd, newPwd)){
 			return SUCCESS;
 		}else{
+			addFieldError("oldPwd","用户名或密码错误");
 			return INPUT;
 		}
 	}
