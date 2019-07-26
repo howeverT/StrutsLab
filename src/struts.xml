@@ -10,18 +10,18 @@
 			<interceptor name="loginInterceptor" class="interceptor.LoginInterceptor"/>
 		</interceptors>
 		<!-- 登陆的Action -->
-        <action name="loginAction" class="action.LoginAction">
+        <action name="loginAction" class="LoginAction">
         	
             <result name="success">/entrance/home.jsp</result>
             <result name="input">/index.jsp</result>
         </action>
         <!-- 注册的Action -->
-        <action name="registerAction" class="action.regAction">
+        <action name="registerAction" class="regAction">
             <result name="success">/index.jsp</result>
             <result name="input">/reg.jsp</result>
         </action>
         <!-- 订票的Action -->
-        <action name="bookAction" class="action.BookAction">
+        <action name="bookAction" class="BookAction">
         	<!-- 使用引用登录拦截器 -->  
 			<interceptor-ref name="loginInterceptor"/>
 			<interceptor-ref name="defaultStack"/>
@@ -36,7 +36,7 @@
             <result name="eor">/index.jsp</result>
         </action>
         <!-- 删除的Action -->
-        <action name="deleteAction" class="action.DeleteAction">
+        <action name="deleteAction" class="DeleteAction">
         	<result name="showTicket" type="redirectAction">
 				<param name="namespace">/</param>
 				<param name="actionName">showAction</param>
@@ -45,12 +45,12 @@
             <result name="input">/entrance/bookSuccess.jsp</result>
         </action>
         <!-- 查询的Action -->
-        <action name="queryAction" class="action.QueryAction">
+        <action name="queryAction" class="QueryAction">
             <result name="success">/entrance/updatePage.jsp</result>
             <result name="input">/entrance/Booking.jsp</result>
         </action>
         <!-- 更新的Action -->
-        <action name="updatePlaneAction" class="action.UpdatePlaneAction">
+        <action name="updatePlaneAction" class="UpdatePlaneAction">
         	<result name="showTicket" type="redirectAction">
 				<param name="namespace">/</param>
 				<param name="actionName">showAction</param>
@@ -59,17 +59,17 @@
             <result name="input">/entrance/updatePage.jsp</result>
         </action>
         <!-- 显示的Action -->
-        <action name="showAction" class="action.ShowAction">
+        <action name="showAction" class="ShowAction">
             <result name="success">/entrance/bookSuccess.jsp</result>
             <result name="input">/entrance/Booking.jsp</result>
         </action>
         <!-- 修改密码的Action -->
-        <action name="updatePwdAction" class="action.UpdatePwdAction">
+        <action name="updatePwdAction" class="UpdatePwdAction">
             <result name="success">/index.jsp</result>
             <result name="input">/entrance/updatePwd.jsp</result>
         </action>
         <!-- 退出的Action -->
-        <action name="quitAction" class="action.QuitAction">
+        <action name="quitAction" class="QuitAction">
             <result name="success">/index.jsp</result>
             <result name="input">/entrance/home.jsp</result>
         </action>

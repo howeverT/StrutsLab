@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 public class ShowAction extends ActionSupport{
 	private List<Plane> planes;
-	PlaneDao pd=new PlaneDao();
+	PlaneDao pd;
 	Map m;
 	private int id; //界面显示数据的索引
 	private final int pageSize=5; //每页显示记录的个数
@@ -17,7 +17,13 @@ public class ShowAction extends ActionSupport{
 	private String qname="";//查询的名字
 	private String qdate="";//查询的日期
 	public ShowAction(){
-		m=ActionContext.getContext().getSession();
+		
+	}
+	public PlaneDao getPd() {
+		return pd;
+	}
+	public void setPd(PlaneDao pd) {
+		this.pd = pd;
 	}
 	public String getQname() {
 		return qname;
@@ -65,6 +71,7 @@ public class ShowAction extends ActionSupport{
 		this.planes = planes;
 	}
 	public String execute(){
+		m=ActionContext.getContext().getSession();
 		//获得所有数据，得到数据的总个数
 		planes=pd.queryTicket(m.get("Uname").toString(),qname,qdate);
 		//计算总页数
@@ -84,6 +91,7 @@ public class ShowAction extends ActionSupport{
 		currentPage=pageNo;
 		
 		//planes=pd.queryTicket(m.get("Uname").toString());
+		m.put("aaa", "111");
 		m.put("planes", planes);
 		return SUCCESS;
 	}

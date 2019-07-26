@@ -4,7 +4,16 @@ import com.dao.*;
 import com.entity.Plane;
 public class UpdatePlaneAction extends ActionSupport{
 	private Plane plane;
-	PlaneDao pd=new PlaneDao();
+	PlaneDao pd;
+	public UpdatePlaneAction(){
+		
+	}
+	public PlaneDao getPd() {
+		return pd;
+	}
+	public void setPd(PlaneDao pd) {
+		this.pd = pd;
+	}
 	public Plane getPlane() {
 		return plane;
 	}

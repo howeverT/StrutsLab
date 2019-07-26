@@ -8,9 +8,17 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class regAction extends ActionSupport{
 	Users ruser;
-	PlaneDao pd=new PlaneDao();
+	PlaneDao pd;
 	String vpwd;
-	
+	public regAction(){
+		
+	}
+	public PlaneDao getPd() {
+		return pd;
+	}
+	public void setPd(PlaneDao pd) {
+		this.pd = pd;
+	}
 	public Users getRuser() {
 		return ruser;
 	}
@@ -28,7 +36,7 @@ public class regAction extends ActionSupport{
 			//跟数据库数据重复就重新注册
 			return INPUT;
 		}else{
-			PlaneDao.userRegister(ruser);
+			pd.userRegister(ruser);
 			return SUCCESS;
 		}
 	}

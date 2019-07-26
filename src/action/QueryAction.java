@@ -5,7 +5,16 @@ import com.opensymphony.xwork2.ActionSupport;
 public class QueryAction extends ActionSupport{
 	int id;
 	Plane plane;
-	PlaneDao pd=new PlaneDao();
+	PlaneDao pd;
+	public QueryAction(){
+		
+	}
+	public PlaneDao getPd() {
+		return pd;
+	}
+	public void setPd(PlaneDao pd) {
+		this.pd = pd;
+	}
 	public int getId() {
 		return id;
 	}

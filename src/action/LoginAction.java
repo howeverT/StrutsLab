@@ -11,8 +11,16 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport{
 	private Users user;
-	PlaneDao pd=new PlaneDao();
-	
+	PlaneDao pd;
+	public LoginAction(){
+		
+	}
+	public PlaneDao getPd() {
+		return pd;
+	}
+	public void setPd(PlaneDao pd) {
+		this.pd = pd;
+	}
 	public Users getUser() {
 		return user;
 	}

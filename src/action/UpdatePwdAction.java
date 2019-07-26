@@ -12,9 +12,15 @@ public class UpdatePwdAction extends ActionSupport{
 	String newPwd;
 	String newPwd2;
 	Users user;
-	PlaneDao pd=new PlaneDao();
+	PlaneDao pd;
 	public UpdatePwdAction(){
 		
+	}
+	public PlaneDao getPd() {
+		return pd;
+	}
+	public void setPd(PlaneDao pd) {
+		this.pd = pd;
 	}
 	public String getOldPwd() {
 		return oldPwd;

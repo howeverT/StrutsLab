@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- LoginAction的bean -->
+	<bean id="LoginAction" class="action.LoginAction">
+		<property name="pd"><!-- 调用set方法给pd赋值，实例化 -->
+			<ref bean="planeDao"/>
+		</property>
+	</bean>		
+	<!-- BookAction的bean -->
+	<bean id="BookAction" class="action.BookAction">
+		<property name="pd">
+			<ref bean="planeDao"/>
+		</property>
+	</bean>	
+	<!-- DeleteAction的bean -->
+	<bean id="DeleteAction" class="action.DeleteAction">
+		<property name="pd">
+			<ref bean="planeDao"/>
+		</property>
+	</bean>	
+	<!-- QueryAction的bean -->
+	<bean id="QueryAction" class="action.QueryAction">
+		<property name="pd">
+			<ref bean="planeDao"/>
+		</property>
+	</bean>
+	<!-- regAction的bean -->
+	<bean id="regAction" class="action.regAction">
+		<property name="pd">
+			<ref bean="planeDao"/>
+		</property>
+	</bean>
+	<!-- ShowAction的bean -->
+	<bean id="ShowAction" class="action.ShowAction">
+		<property name="pd">
+			<ref bean="planeDao"/>
+		</property>
+	</bean>
+	<!-- UpdatePlaneAction的bean -->
+	<bean id="UpdatePlaneAction" class="action.UpdatePlaneAction">
+		<property name="pd">
+			<ref bean="planeDao"/>
+		</property>
+	</bean>
+	<!-- UpdatePwdAction的bean -->
+	<bean id="UpdatePwdAction" class="action.UpdatePwdAction">
+		<property name="pd">
+			<ref bean="planeDao"/>
+		</property>
+	</bean>
+	<!-- QuitAction的bean -->
+	<bean id="QuitAction" class="action.QuitAction">
+		<property name="pd">
+			<ref bean="planeDao"/>
+		</property>
+	</bean>
+</beans>

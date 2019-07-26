@@ -11,10 +11,16 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DeleteAction extends ActionSupport{
 	private int id;
 	private List<Plane> planes;
-	PlaneDao pd=new PlaneDao();
+	PlaneDao pd;
 	Map m;
 	public DeleteAction(){
-		m=ActionContext.getContext().getSession();
+		
+	}
+	public PlaneDao getPd() {
+		return pd;
+	}
+	public void setPd(PlaneDao pd) {
+		this.pd = pd;
 	}
 	public int getId() {
 		return id;
@@ -29,6 +35,7 @@ public class DeleteAction extends ActionSupport{
 		this.planes = planes;
 	}
 	public String execute(){
+		m=ActionContext.getContext().getSession();
 		if(pd.deletePlaneById(id)){
 			//planes=pd.queryTicket(m.get("Uname").toString());
 			//m.put("planes", planes);

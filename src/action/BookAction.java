@@ -11,10 +11,16 @@ import com.entity.Plane;
 public class BookAction extends ActionSupport{
 	private Plane plane;
 	private List<Plane> planes;
-	PlaneDao pd=new PlaneDao();
+	PlaneDao pd;
 	Map m;
 	public BookAction(){
-		m=ActionContext.getContext().getSession();
+		
+	}
+	public PlaneDao getPd() {
+		return pd;
+	}
+	public void setPd(PlaneDao pd) {
+		this.pd = pd;
 	}
 	public Plane getPlane() {
 		return plane;
@@ -34,6 +40,7 @@ public class BookAction extends ActionSupport{
 
 	public String execute()throws Exception{
 		//获取用户的订票信息
+		m=ActionContext.getContext().getSession();
 		//System.out.println(m.get("Uname"));
 		pd.insertData(plane);
 		//m.put("Uname", plane.getUtage());

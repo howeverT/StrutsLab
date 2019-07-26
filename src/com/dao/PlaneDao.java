@@ -1,7 +1,7 @@
 package com.dao;
 import com.connect.*;
 import com.entity.*;
-import com.common.HibernateSessionFactory;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +12,7 @@ import java.util.Vector;
 import com.entity.Users;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 
@@ -21,8 +22,15 @@ public class PlaneDao {
 	public PlaneDao(){
 		
 	}
+	SessionFactory sessionFactory;
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	//用户登陆与数据库比较
-	public static boolean userLogin(Users user) {
+	public boolean userLogin(Users user) {
 		/*
 		Connection dbConnection = null;
 		PreparedStatement pStatement = null;
@@ -47,10 +55,10 @@ public class PlaneDao {
 			ConnectionManager.closeConnection(dbConnection);
 		}
 		return status;*/
-		Session session;
+		Session session=null;
 		try{
 			//得到Session对象
-			session=HibernateSessionFactory.getSession();
+			session=sessionFactory.openSession();
 			//HQL语句, Users是持久化类,name和password是持久化Users类的属性
 			String hql="from Users where name=? and pwd=?";
 			//创建Query对象
@@ -69,7 +77,7 @@ public class PlaneDao {
 			ex.printStackTrace();
 			return false;
 		}finally{
-			HibernateSessionFactory.closeSession();
+			session.close();
 		}
 	}
 	//注册判断是否同名
@@ -100,7 +108,7 @@ public class PlaneDao {
 		return status;
 	}
 	//用户注册信息插入到数据库当中
-	public static boolean userRegister(Users user){
+	public boolean userRegister(Users user){
 		/*Connection dbConnection = null;
 		PreparedStatement pStatement = null;
 		int res = 0;
@@ -129,7 +137,7 @@ public class PlaneDao {
 		Session session=null;
 		Transaction transaction=null;
 		try{
-			session=HibernateSessionFactory.getSession();
+			session=sessionFactory.openSession();
 			transaction=session.beginTransaction();
 			num=Integer.parseInt(session.save(user).toString());
 			transaction.commit(); //写入数据库，
@@ -137,12 +145,12 @@ public class PlaneDao {
 			e.printStackTrace();
 			num=0;
 		}finally{//关闭session
-			HibernateSessionFactory.closeSession();//调用HibernateSessionFactory的静态方法关闭Session
+			session.close();//调用HibernateSessionFactory的静态方法关闭Session
 		}
 		return true;
 	}
 	//插入数据
-	public static boolean insertData(Plane plane) {
+	public boolean insertData(Plane plane) {
 		/*Connection dbConnection = null;
 		PreparedStatement pStatement = null;
 		int res=0;
@@ -167,11 +175,11 @@ public class PlaneDao {
 			ConnectionManager.closeConnection(dbConnection);
 		}
 		return status;*/
-		Session session;
+		Session session=null;
 		int num=0; //受影响的行数
 		try{
 			//获得Sesion对象
-			session=HibernateSessionFactory.getSession();
+			session=sessionFactory.openSession();
 			//开始事物
 			Transaction trans=session.beginTransaction();
 			//保存数据,返回受影响的行数
@@ -181,12 +189,12 @@ public class PlaneDao {
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}finally{
-			HibernateSessionFactory.closeSession();
+			session.close();
 		}
 		return true;
 	}
 	//查询订票信息
-	public static List<Plane> queryTicket(String p,String n,String d){
+	public List<Plane> queryTicket(String p,String n,String d){
 		/*Connection dbConnection = null;
 		PreparedStatement pStatement = null;
 		ResultSet res = null;
@@ -218,7 +226,7 @@ public class PlaneDao {
 		//得到session
 		Session session=null;
 		try{
-			session=HibernateSessionFactory.getSession();
+			session=sessionFactory.openSession();
 			//hql语句,Plane代表是entity里的实体类
 			//获取所有数据
 			String queryString="from Plane where utage=? and uname like '%"+n+"%'"+" and date like '%"+d+"%'";
@@ -237,14 +245,14 @@ public class PlaneDao {
 				e.printStackTrace();
 				return null;
 			}finally{//关闭session
-				HibernateSessionFactory.closeSession();//调用HibernateSessionFactory的静态方法关闭Session
+				session.close();//调用HibernateSessionFactory的静态方法关闭Session
 			}
 	}
 		//根据id来删除数据方法
 		public boolean deletePlaneById(int id){
 			Session session=null;
 			try{
-				session=HibernateSessionFactory.getSession();
+				session=sessionFactory.openSession();
 				//根据id获取要删除的用户
 				Plane plane=(Plane)session.get(Plane.class, id);
 				//删除plane数据
@@ -257,7 +265,7 @@ public class PlaneDao {
 				e.printStackTrace();
 				return false;
 			}finally{//关闭session
-				HibernateSessionFactory.closeSession();//调用HibernateSessionFactory的静态方法关闭Session
+				session.close();//调用HibernateSessionFactory的静态方法关闭Session
 			}
 			//delete方法， user对象处于临时状态，在数据库中没有对应的记录，因为已经删除了
 		}
@@ -265,7 +273,7 @@ public class PlaneDao {
 		public Plane queryTicketById(int id){
 			Session session=null;
 			try{
-				session=HibernateSessionFactory.getSession();
+				session=sessionFactory.openSession();
 				//根据id获取要修改的用户数据
 				Plane p=(Plane)session.get(Plane.class, id);
 				return p;
@@ -274,14 +282,14 @@ public class PlaneDao {
 				e.printStackTrace();
 				return null;
 			}finally{//关闭session
-				HibernateSessionFactory.closeSession();//调用HibernateSessionFactory的静态方法关闭Session
+				session.close();//调用HibernateSessionFactory的静态方法关闭Session
 			}	
 		}
 		//根据id来更新数据方法
 		public boolean updatePlane(Plane newPlane){
 			Session session=null;
 			try{
-				session=HibernateSessionFactory.getSession();
+				session=sessionFactory.openSession();
 				//保存oldUser数据回数据库
 				Transaction trans=session.beginTransaction();
 				//调用保存更新方法
@@ -293,7 +301,7 @@ public class PlaneDao {
 				e.printStackTrace();
 				return false;
 			}finally{//关闭session
-				HibernateSessionFactory.closeSession();//调用HibernateSessionFactory的静态方法关闭Session
+				session.close();//调用HibernateSessionFactory的静态方法关闭Session
 			}	
 		}
 		//查询每页需要显示的数据(每次最多5条记录)
@@ -301,7 +309,7 @@ public class PlaneDao {
 			//得到session
 			Session session=null;
 			try{
-				session=HibernateSessionFactory.getSession();
+				session=sessionFactory.openSession();
 				String queryString="from Plane where utage=? and uname like '%"+n+"%'"+" and date like '%"+d+"%'";
 				//创建查询
 				Query query=session.createQuery(queryString);
@@ -319,7 +327,7 @@ public class PlaneDao {
 				e.printStackTrace();
 				return null;
 			}finally{//关闭session
-				HibernateSessionFactory.closeSession();//调用HibernateSessionFactory的静态方法关闭Session
+				session.close();//调用HibernateSessionFactory的静态方法关闭Session
 			}	
 		}
 		//修改密码
@@ -329,7 +337,7 @@ public class PlaneDao {
 			Session session=null;
 			Transaction transaction=null;
 			try{
-				session=HibernateSessionFactory.getSession();
+				session=sessionFactory.openSession();
 				//hql语句,Users是实体类,name和pwd代表实体类的属性
 				String queryString="from Users where name=? and pwd=?";
 				//创建查询
@@ -352,7 +360,7 @@ public class PlaneDao {
 				e.printStackTrace();
 				return false;
 			}finally{//关闭session
-				HibernateSessionFactory.closeSession();//调用HibernateSessionFactory的静态方法关闭Session
+				session.close();//调用HibernateSessionFactory的静态方法关闭Session
 			}
 		}
 }
